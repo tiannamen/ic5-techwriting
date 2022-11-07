@@ -1,22 +1,27 @@
-swagger: '2.0'
+openapi: 3.0.0
 servers:
-  url: https://sampleapi.com.br/api/
-components:
-  securitySchemes:
-    appKey:
-      type: apiKey
-      in: header
-      name: appKey
+  - description: Sample API
+    url: https://sampleapi.com.br/api/
+info:
+  version: "1.0.0"
+  title: Sample API for NuBank
+  description: >-
+    This is an example of Swagger Documentation for NuBank
+security:
+  - appKey: []
 paths:
-  /accounts:
+  /account:
     get:
-    description: Returns an account by ID
-    parameters:
-      name: accountId
-      in: query
-      description: Account identification number
-      schema:
-        type: integer
+      summary: Retrieve an Account
+      description: >-
+        Returns an account by ID
+      parameters: 
+        - in: query
+          name: accountId
+          description: >-
+            Account identification number
+          schema:
+            type: integer
       responses:
         '200':
           description: Successfully returned
@@ -28,7 +33,7 @@ paths:
                   id:
                     type: string
                   balance:
-                    type: decimal
+                    type: number
                   document:
                     type: string
                   status:
@@ -36,7 +41,7 @@ paths:
                   documentType:
                     type: string
                   creditLimit:
-                    type: decimal
+                    type: number
                   updateAt:
                     type: string
                   createdAt:
@@ -44,15 +49,15 @@ paths:
                   description:
                     type: string
                   availableCredit:
-                    type: decimal
+                    type: number
                   preAuthorizedCredit:
-                    type: decimal
+                    type: number
                   email:
                     type: string
                   tolerance:
                     type: string
                   availableTolerance:
-                    type: decimal
+                    type: number
         '400':
           description: Invalid request
           content:
@@ -62,3 +67,10 @@ paths:
                 properties:
                   Message:
                     type: string
+components:
+  schemas: {}
+  securitySchemes:
+    appKey:
+      type: apiKey
+      in: header
+      name: appKey

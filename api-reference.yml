@@ -1,0 +1,63 @@
+servers:
+  url: https://sampleapi.com.br/api/
+components:
+  securitySchemes:
+    appKey:
+      type: apiKey
+      in: header
+      name: appKey
+paths:
+  /accounts:
+    get:
+    description: Returns an account by ID
+      parameters:
+          name: accountId
+          in: query
+          description: Account identification number
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully returned
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  balance:
+                    type: decimal
+                  document:
+                    type: string
+                  status:
+                    type: string
+                  documentType:
+                    type: string
+                  creditLimit:
+                    type: decimal
+                  updateAt:
+                    type: string
+                  createdAt:
+                    type: string
+                  description:
+                    type: string
+                  availableCredit:
+                    type: decimal
+                  preAuthorizedCredit:
+                    type: decimal
+                  email:
+                    type: string
+                  tolerance:
+                    type: string
+                  availableTolerance:
+                    type: decimal
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Message:
+                    type: string

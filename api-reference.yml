@@ -1,3 +1,4 @@
+swagger: '2.0'
 servers:
   url: https://sampleapi.com.br/api/
 components:

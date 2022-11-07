@@ -11,11 +11,11 @@ paths:
     get:
     description: Returns an account by ID
       parameters:
-          name: accountId
-          in: query
-          description: Account identification number
-          schema:
-            type: integer
+        name: accountId
+        in: query
+        description: Account identification number
+        schema:
+          type: integer
       responses:
         '200':
           description: Successfully returned

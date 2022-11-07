@@ -10,12 +10,12 @@ paths:
   /accounts:
     get:
     description: Returns an account by ID
-      parameters:
-        name: accountId
-        in: query
-        description: Account identification number
-        schema:
-          type: integer
+    parameters:
+      name: accountId
+      in: query
+      description: Account identification number
+      schema:
+        type: integer
       responses:
         '200':
           description: Successfully returned

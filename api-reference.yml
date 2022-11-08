@@ -1,26 +1,27 @@
 openapi: 3.0.0
 servers:
-  - description: Sample API
+  - description: Nu Accounts
     url: https://sampleapi.com.br/api
 info:
   version: "1.0.0"
-  title: Sample API for NuBank
+  title: Nu Accounts
   description: >-
-    This is an example of Swagger Documentation for NuBank
+    Use the Nu Accounts API to retrieve an account by its ID.
 security:
   - appKey: []
 paths:
   /account:
     get:
-      summary: Retrieve an Account
+      summary: Retrieve account
       description: >-
-        Returns an account by ID
+        Returns an account by its ID.
       operationId: getAccountById
       parameters: 
         - in: query
           name: accountId
+          required: true
           description: >-
-            Account identification number
+            Account identification number used to retrieve the account.
           schema:
             type: integer
       responses:

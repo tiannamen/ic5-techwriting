@@ -45,7 +45,7 @@ Refer to the [AWS Java Developer Guide](https://docs.aws.amazon.com/sdk-for-java
 
 ### UML Diagram
 
-![compromised credentials](ic5-techwriting\resources\uml-diagram.jpeg)
+![compromised credentials](https://github.com/tiannamen/ic5-techwriting/blob/main/resources/uml-diagram.jpeg)
 
 ---
 

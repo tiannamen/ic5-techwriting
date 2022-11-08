@@ -1,0 +1,118 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "description": "Sample API",
+      "url": "https://sampleapi.com.br/api"
+    }
+  ],
+  "info": {
+    "version": "1.0.0",
+    "title": "Sample API for NuBank",
+    "description": "This is an example of Swagger Documentation for NuBank"
+  },
+  "security": [
+    {
+      "appKey": []
+    }
+  ],
+  "paths": {
+    "/account": {
+      "get": {
+        "summary": "Retrieve an Account",
+        "description": "Returns an account by ID",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "accountId",
+            "description": "Account identification number",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "balance": {
+                      "type": "number"
+                    },
+                    "document": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "documentType": {
+                      "type": "string"
+                    },
+                    "creditLimit": {
+                      "type": "number"
+                    },
+                    "updateAt": {
+                      "type": "string"
+                    },
+                    "createdAt": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "availableCredit": {
+                      "type": "number"
+                    },
+                    "preAuthorizedCredit": {
+                      "type": "number"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "tolerance": {
+                      "type": "string"
+                    },
+                    "availableTolerance": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "Message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "appKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "appKey"
+      }
+    }
+  }
+}

@@ -15,6 +15,7 @@ paths:
       summary: Retrieve an Account
       description: >-
         Returns an account by ID
+      operationId: getAccountById
       parameters: 
         - in: query
           name: accountId

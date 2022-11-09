@@ -4,26 +4,49 @@
 
 # Table of Contents
 
-1. [Compromised AWS Account Credentials](#compromised-aws-account-credentials)
-   
-   1.1. [Sequence Diagram](#the-following-diagram-provides-a-visual-representation-of-the-steps-described-above)
-2. [Technical Writing Guide](#technical-writing-guide)
-   
-   2.1. [Documentation Deliverables](#documentation-deliverables)
-   
-   2.2. [Basic Guidelines](#guidelines)
-        
-       2.1.1. [Keep it Simple](#keep-it-simple)
+## [1. Compromised AWS Account Credentials](#compromised-aws-account-credentials)
 
-   2.3. []
-3. [API Documentation](#api-documentation-template)
+### [1.1. Sequence Diagram](#11-sequence-diagram)
 
----
+## [2. Technical Writing Guide](#technical-writing-guide)
+
+### [2.1. Documentation Deliverables](#documentation-deliverables)
+
+### [2.2. Basic Guidelines](#22-basic-guidelines)
+
+#### [2.2.1. Keep it Simple](#221-keep-it-simple)
+
+#### [2.2.2. Target Audience](#222-target-audience)
+
+#### [2.2.3 Tone of Voice and Style](#223-tone-of-voice-and-style)
+
+#### [2.2.4. Table of Contents](#224-table-of-contents)
+
+#### [2.2.5 Know you Grammar](#225-know-you-grammar)
+
+### [2.3. Getting Started](#getting-started)
+
+#### [2.3.1. Plan](#plan)
+
+#### [2.3.2. Structure](#structure)
+
+#### [2.3.3. Write](#write)
+
+#### [2.3.4 Review](#review)
+
+#### [2.3.5. Publish](#publish)
+
+### [2.4. Helpful Links](#helpful-links)
+
+### [2.5. Contact Us](#contact-us)
+
+## [3. API Documentation](#api-documentation)
+
+-------
 
 ## Compromised AWS Account Credentials
 
-Infosec has identified a security incident related to AWS credentials leakage. Execute the procedure below in order to either contain or prevent a possible attack.
-
+Infosec has identified a security incident related to AWS credentials leakage. Execute the procedure below to either contain or prevent a possible attack.
 
 1. **Remove all permissions from the affected AWS user without revoking credentials:**
 
@@ -39,39 +62,37 @@ Infosec has identified a security incident related to AWS credentials leakage. E
    1.4. Request the removal of the affected user from all listed groups:
    ```nu sec iam remove <user> <groups>```
 
-
 2. **Communicate the incident to the relevant stakeholders.**
 
-3. **Notify the affected user on Slack, as follows:**
+3. **Notify the affected user on Slack:**
 
-*"Your AWS permissions have been temporarily suspended pending an investigation into a possible compromise. If you have any questions, do not hesitate to contact me and, for security reasons, please keep the incident private until further notice from Infosec"*
+    *"Your AWS permissions have been temporarily suspended pending an investigation into a possible compromise. If you have any questions, do not hesitate to contact me and, for security reasons, please keep the incident private until further notice from Infosec."*
 
+4. **Send a message through the affected user's Slack to their Manager:**
 
-4. **Send a message through the affected user's Slack to their Manager.**
+    *"There has been wrongful activity involving this engineer's AWS account. Please inform them that the permissions associated with it have been temporarily blocked and guide them through further understanding of the incident. Also, advise them to keep the incident private until further notice from Infosec."*
 
-*"There has been wrongful activity involving this engineer's AWS account. Please inform them that the permissions associated with it have been temporarily blocked and guide them through further understanding of the incident. Also, advise them to keep the incident private until further notice from Infosec"*
-
-5. **Request an admin IAM user (see step 1.1.) to revoke the affected AWS credentials and disable/delete the affected credentials using the AWS console.**
+5. **Request an admin IAM user (*see step 1.1.*) to revoke the affected AWS credentials and disable/delete the affected credentials using the AWS console.**
 
 6. **Generate new credentials and a new keypair via AWS console.**
 
 7. **Send the new keypair to the affected user via Slack direct message and instruct them to update all references to their AWS keys, such as the ones in the `.bash_profile`. It is possible to perform this action by using the `nudev ./setupnu.sh`, available at [Setup nudev](https://github.com/nubank/nudev/blob/master/setupnu.sh) or [Nu Setup](https://github.com/nubank/nu-setup).**
 
+### Sequence Diagram
 
-#### The following diagram provides a visual representation of the steps described above:
+The diagram below provides a visual representation of the steps described above:
 
 ![compromised credentials](https://github.com/tiannamen/ic5-techwriting/blob/main/resources/uml-diagram.jpeg)
 
-
 Refer to the [AWS Java Developer Guide](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html) for information on how to work with AWS credentials and to the [Prescriptive Guide](https://docs.aws.amazon.com/prescriptive-guidance/latest/aws-startup-security-baseline/controls-acct.html) for information on how to secure your account.
 
----
+-------
 
 ## Technical Writing Guide
 
-Every technical documentation must communicate with the product user in a clear and simplified way, connecting them to the product. 
+Every technical documentation must communicate with the product user in a clear and simplified way, connecting them to the product and ensurring they can get the complete information just by reading it.
 
-This guide contains the basics to start writing and delivering technical documentation. The target audience is truly anyone who is interested in bringing additional value to their tech product, by having a documentation. 
+This guide contains the basics to start writing and delivering technical documentation. The target audience is truly anyone who is interested in bringing additional value to their tech product, by having a documentation.
 
 For more information regarding the value of documentation, refer to [Google Developers](https://developers.google.com/tech-writing/resources#the_value_of_documentation).
 
@@ -88,13 +109,13 @@ The Technical Writing work results in technical documentation, which can be of m
 
 For more information on different types of writing, refer to [UX Design Bootcamp](https://bootcamp.uxdesign.cc/copywriter-content-writer-technical-writer-ux-writer-who-to-hire-2cec63e29488).
 
-### Guidelines
+### Basic Guidelines
 
 This section provides useful information on some important concepts to have in mind when creating technical content.
 
 #### Keep it Simple
 
-The simpler, the better. Always have in mind that the user does not need some big and complex words to understand the content, actually it is the opposite. Simplify all you can, fitting the complex information into one readable document.
+Always have in mind that the user does not need some big and complex words to understand the content, actually it is the opposite. Simplify all you can, fitting the complex information into one readable document: the simpler, the better.
 
 Also, be careful with the paragraphs lenght. Each paragraph should contain only one topic of information, broke into sentences.
 
@@ -104,7 +125,7 @@ One of the first definitions for the documentation is the target audience. That 
 
 #### Tone of Voice and Style
 
-Companies usually define the tone of voice they want to use to communicate with clients. Here, at Nu, is no different. 
+Companies usually define the tone of voice they want to use to communicate with clients. Here, at Nu, is no different.
 
 In addition, we also have a style guide, which has the purpose of standardizing our deliveries. Having the same standards, such as colors, fonts, structure etc, brings a feeling of something familiar, which helps Nu bond with its clients.
 
@@ -116,7 +137,7 @@ This element will help you structure the content and ensure that the reader can 
 
 #### Know your Grammar
 
-Do not worry: nobody expects you to write like a Technical Writer if you are not. However, you should at least be able to write gramatically correct sentences and paragraphs. In case this is still a challenge to you, check out the [Tech Writing courses from Google Developers](#helpful-links).
+Do not worry: nobody expects you to write like a Technical Writer if you are not. However, you should at least be able to write gramatically correct sentences and paragraphs to comply with Nu Quality Standards. In case this is still a challenge to you, check out the [Tech Writing courses from Google Developers](#helpful-links).
 
 ### Getting Started
 
@@ -126,16 +147,49 @@ The following image, taken out from the book, exemplifies each step of the proce
 
 ![technical writing process](https://github.com/tiannamen/ic5-techwriting/blob/main/resources/technical-writing-process.jpg)
 
-To simplify your journey through this process, we provide a checklist to each step.
+To simplify your journey, we provide a questions checklist to each step.
 
 #### Plan
 
-1. 
+- What is the subject of this documentation?
+- How much time do I expect to spend on this documentation? Is there a due date?
+- Who is the target audience?
+- Which kind of information do I want to give the target audience: explanation, reference, tutorial, or problem solving?
+- Who are the stakeholders?
+- How are the stakeholders involved?
+- Who are the Subject Matter Experts (SME) that can help me get all the information to complete the documentation?
+- Who are the SMEs that need to review the content before publishing?
+- Where is the content going to be published?
 
+#### Structure
 
+- Is there a minimum or maximum size this documentation should have?
+- What are the topics this documentation should cover?
 
-- 
-- Table of contents
+#### Write
+
+- Do I know the [Basic Guidelines](#basic-guidelines) to write a technical documentation?
+- Is my text complying with [NuDocs Style Guide]()?
+- Do I have any grammar check tool available (like instatext, grammarly etc)?
+- Do I have all the information I need to complete the documentation?
+- Does the documentation have an specific format (plain text, markdown, html)?
+- Where should I write the first draft?
+
+#### Review
+
+- Is the content ready to be reviewed?
+- Who are the people involved that need to review my documentation (developers, testers, technical writers etc)?
+- Have I done my review before sending the documentation to the people involved?
+- How can I ensure there will be no mess with the documentation version during the review process (like lots of people reviewing a deprecated version of the document)? Is there any version control tool I can use?
+
+#### Publish
+
+- Will I use the [Nu Single Source of Truth]() tool? If not, why?
+- Does the target audience have access to the tool where I will publish the documentation?
+- Does this tool have a version control?
+- Do I need someone to approve the publishing or can I do it by myself?
+- Do I need to create a review calendar to make sure this documentation is always up-to-date?
+- Does this documentation need to be followed by a release notes?
 
 ### Helpful Links
 
@@ -145,14 +199,17 @@ Learn more about Technical Writing and Technical Documentation:
 - [I'd Rather Be Writing Blog](https://idratherbewriting.com/)
 - [Write the Docs](https://www.writethedocs.org/)
 
+### Contact Us
 
----
+If you are still not sure how to write a technical documentation, or have some feedbacks about this manual, do not hesitate to contact the [Technical Writing Team]().
 
-# API Documentation
+-------
+
+## API Documentation
 
 > For detailed information, refer to the [API Specification on Redoc](https://tiannamen.redoc.ly/).*
 
-*Available until November 22th. After that, it will only be visible with a Redoc user login.
+*Available until November 22th. After that, it will only be visible with a Redoc user login, which is free.
 
 ## Nu Accounts
 
@@ -162,32 +219,31 @@ API documentation for the `getAccount` method.
 
 The `getAccount` method retrieves a Nu Account by its identification number. The information retrieved from the account includes:
 
-* Balance
-* Document
-* Status
-* Document Type
-* Credit Limit
-* Last Update
-* Creation Date
-* Description
-* Available Credit
-* Pre-Authorized Credit
-* e-mail
-* Tolerance
-* Available Tolerance
+- Balance
+- Document
+- Status
+- Document Type
+- Credit Limit
+- Last Update
+- Creation Date
+- Description
+- Available Credit
+- Pre-Authorized Credit
+- e-mail
+- Tolerance
+- Available Tolerance
 
 #### Parameters
 
-The Retrieve Account API contains the following parameter:
+The `getAccount` method contains the following parameter:
 
 |PARAMETER|DESCRIPTION|TYPE|REQUIRED|
 |---|---|---|---|
 |`accountId`|Account identification number.|integer|yes|
 
-
 #### Request payload
 
-The following snippet is a Java request sample:
+The code snippet below is a Java request sample:
 
 **METHOD:** `getAccount`
 
@@ -226,7 +282,7 @@ public class App {
 
 #### Response Payload
 
-* **200 - Successfully returned**
+- **200 - Successfully returned**
 
 ```
 {
@@ -247,12 +303,10 @@ public class App {
 }
 ```
 
-* **400 - Invalid request**
+- **400 - Invalid request**
 
 ```
 {
 "Message": "string"
 }
 ```
-
-

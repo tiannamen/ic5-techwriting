@@ -6,23 +6,23 @@
 
 ## [1. Compromised AWS Account Credentials](#compromised-aws-account-credentials)
 
-### [1.1. Sequence Diagram](#11-sequence-diagram)
+### [1.1. Sequence Diagram](#sequence-diagram)
 
 ## [2. Technical Writing Guide](#technical-writing-guide)
 
 ### [2.1. Documentation Deliverables](#documentation-deliverables)
 
-### [2.2. Basic Guidelines](#22-basic-guidelines)
+### [2.2. Basic Guidelines](#basic-guidelines)
 
-#### [2.2.1. Keep it Simple](#221-keep-it-simple)
+#### [2.2.1. Keep it Simple](#keep-it-simple)
 
-#### [2.2.2. Target Audience](#222-target-audience)
+#### [2.2.2. Target Audience](#target-audience)
 
-#### [2.2.3 Tone of Voice and Style](#223-tone-of-voice-and-style)
+#### [2.2.3 Tone of Voice and Style](#tone-of-voice-and-style)
 
-#### [2.2.4. Table of Contents](#224-table-of-contents)
+#### [2.2.4. Table of Contents](#table-of-contents-1)
 
-#### [2.2.5 Know you Grammar](#225-know-you-grammar)
+#### [2.2.5 Know you Grammar](#know-your-grammar)
 
 ### [2.3. Getting Started](#getting-started)
 
